@@ -43,8 +43,8 @@ namespace SonarNet
         public bool IsLocked(string login) =>
             _failedAttempts.TryGetValue(login, out var failed) && failed >= MaxFailedAttempts;
 
-        // Пароль нормалізується перед хешуванням
+        // Пароль хешується без змін: регістр символів має значення
         private static string Hash(string password) =>
-            Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(password.ToLowerInvariant())));
+            Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
     }
 }
