@@ -1,0 +1,11 @@
+# Результати збірки
+bin/
+obj/
+# Службові файли IDE
+.vs/
+*.user
+*.suo
+# Результати аналізу SonarQube і тестів
+.sonarqube/
+TestResults/
+*.log

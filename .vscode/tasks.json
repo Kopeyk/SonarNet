@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cloc: metrics of project",
+      "type": "shell",
+      "command": "cloc ${workspaceFolder} --exclude-dir=bin,obj,.vscode --by-file",
+      "problemMatcher": []
+    }
+  ]
+}
