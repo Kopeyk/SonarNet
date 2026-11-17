@@ -27,12 +27,12 @@ jobs:
 
       # Крок 3: відновлення залежностей
       - name: Restore dependencies
-        run: dotnet restore SonarNet.slnx
+        run: dotnet restore tests/SonarNet.Tests/SonarNet.Tests.csproj
 
       # Крок 4: компіляція (без повторного відновлення залежностей)
       - name: Build
-        run: dotnet build SonarNet.slnx --no-restore
+        run: dotnet build tests/SonarNet.Tests/SonarNet.Tests.csproj --no-restore
 
-      # Крок 5: запуск модульних тестів
+      # Крок 5: запуск модульних тестів (тестовий проєкт посилається на основний, тому збирає й його)
       - name: Run unit tests
-        run: dotnet test SonarNet.slnx --no-build --verbosity normal
+        run: dotnet test tests/SonarNet.Tests/SonarNet.Tests.csproj --no-build --verbosity normal
